@@ -29,11 +29,24 @@ a {
 .cart-icon {
   display: flex;
   align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  width: fit-content;
 }
 
-.cart-icon a {
+.cart-icon svg {
   font-size: 1.5rem;
 }
+
+.cart-items-number {
+  color: red;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 1.2rem;
+  bottom:1rem;
+}
+
 
 .search-input {
   outline: none;

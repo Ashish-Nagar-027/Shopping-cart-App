@@ -15,8 +15,11 @@ const Header = () => {
                  <input type='text' className='search-input'></input>
               </form>
             </div>
-            <div className='cart-icon'>
-              <Link to="/Cart"><AiOutlineShoppingCart /></Link>
+            <div>
+            <Link to="/Cart" className='cart-icon'>
+              <AiOutlineShoppingCart />
+              <div className='cart-items-number'>1</div>
+            </Link>
             </div>
         </div>
     </div>
