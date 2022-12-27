@@ -1,15 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  background-color: #FFFFFF;
+  min-height: 100vh;
+}
+
+.App.dark {
+  background-color: #23272F;
+  color: white;
+}
+
+
 .Navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: rgb(104, 155, 149);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  min-height: 4.5rem;
+}
+
+.dark-navbar a {
   color: white;
+}
+
+.Navbar.dark-navbar {
+  background-color: #343A46;
+  color: white;
+}
+
+
+.themeChangeIcon {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .right-nav{
    display: flex;
    gap : 1rem;
+   align-items: center;
+}
+
+.nav-btns {
+  height: 2rem;
+  width:2rem;
+  cursor: pointer;
 }
 
 a {
@@ -22,10 +63,6 @@ a {
   font-size: 1.4rem;
 }
 
-.logo:focus {
-  color: #561A8B;
-}
-
 .cart-icon {
   display: flex;
   align-items: center;
@@ -36,15 +73,34 @@ a {
 }
 
 .cart-icon svg {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .cart-items-number {
-  color: red;
+  /* color: red; */
   font-size: 1.2rem;
-  position: absolute;
-  left: 1.2rem;
-  bottom:1rem;
+  pointer-events: none;
+  /* display: none; */
+}
+
+.cart-div {
+  padding: 1px;
+  min-width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.4px solid black;
+}
+
+.cart-div:hover {
+  border: 0.4px solid black;
+}
+
+.dark-cart-div {
+  border-color: white;
+}
+.dark-cart-div:hover {
+  border: 0.4px solid white;
 }
 
 
@@ -53,4 +109,44 @@ a {
   padding: 0.4rem;
   border-radius: 5px;
   border: 1px solid black;
+}
+
+
+
+/* products box css */
+.products-container {
+  padding: 20px ;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-evenly;
+ gap: 10px;
+}
+
+.product-box {
+  border: 1px solid black;
+  padding: 5px;
+  height: 15rem;
+  width: 15rem;
+  display: flex;
+  flex-direction: column ;
+  align-items: center;
+  justify-content: space-around;
+ 
+}
+
+.product-img {
+  width: 4rem;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+  margin: 5px;
+}
+
+.add-to-cart-btn {
+  padding: 5px 10px;
+  cursor: pointer;
 }
