@@ -1,10 +1,14 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsMoon, BsSun  } from "react-icons/bs";
+import { CartData } from '../Context';
 
 import { Link } from 'react-router-dom'
 
 const Header = ({isDarkMode, setIsDarkMode}) => {
+
+  const { cartProducts } =  useContext(CartData)
+
   return (
     <div className={isDarkMode ? "Navbar dark-navbar" : "Navbar"}>
         <div className='left-nav'>
@@ -20,7 +24,7 @@ const Header = ({isDarkMode, setIsDarkMode}) => {
             <div className={isDarkMode ? 'cart-div dark-cart-div' : 'cart-div'}>
             <Link to="/Cart" className='cart-icon'>
               <button className='nav-btns'><AiOutlineShoppingCart /></button>
-              <button className='cart-items-number nav-btns'>0</button>
+              <button className='cart-items-number nav-btns'>{cartProducts.length}</button>
             </Link>
             </div>
             <div className='themeChangeIcon' onClick={() => setIsDarkMode(!isDarkMode)}>
