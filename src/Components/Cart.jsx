@@ -4,12 +4,12 @@ import SingleProduct from './SingleProduct'
 
 const Cart = () => {
 
-  const { cartProducts , setCartProducts} =  useContext(CartData)
+  const { cartProducts , setCartProducts, isDarkMode, setIsDarkMode} =  useContext(CartData)
 
   return (
     <div className='products-container'>
        {cartProducts.map((product => {
-       return <SingleProduct key={product.title} product={ product } cartProducts={cartProducts} setCartProducts={setCartProducts} />
+       return <SingleProduct key={product.title} product={ product } isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} cartProducts={cartProducts} setCartProducts={setCartProducts} />
        }))}
     </div>
   )

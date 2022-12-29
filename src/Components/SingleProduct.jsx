@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const SingleProduct = ({product, cartProducts, setCartProducts }) => {
+const SingleProduct = ({product, cartProducts, setCartProducts, isDarkMode }) => {
      
   
     function editedTitle(title) {
@@ -33,7 +33,7 @@ const SingleProduct = ({product, cartProducts, setCartProducts }) => {
 
        
     return (
-        <div className='product-box' key={product.id}>
+        <div className={isDarkMode ? "product-box dark-product-box" : "product-box" } key={product.id}>
         <img src={product.image} className='product-img' alt={product.name}></img>
         <div className="product-details">
           <p>{editedTitle(product.title)}</p>

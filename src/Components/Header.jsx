@@ -5,9 +5,9 @@ import { CartData } from '../Context';
 
 import { Link } from 'react-router-dom'
 
-const Header = ({isDarkMode, setIsDarkMode}) => {
+const Header = () => {
 
-  const { cartProducts } =  useContext(CartData)
+  const { cartProducts,isDarkMode, setIsDarkMode } =  useContext(CartData)
 
   return (
     <div className={isDarkMode ? "Navbar dark-navbar" : "Navbar"}>

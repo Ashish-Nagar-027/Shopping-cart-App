@@ -7,32 +7,31 @@ import SingleProduct from './SingleProduct'
 
 const Home = () => {
 
-  const { cartProducts , setCartProducts} =  useContext(CartData)
+  const { cartProducts , setCartProducts, isDarkMode } =  useContext(CartData)
   
   const [products , setProducts] = useState([])
-  
 
-  let productsApiUrl  = 'https://fakestoreapi.com/products'
-   
-  async function getProducts(productsApiUrl){
-    let response = await fetch(productsApiUrl)
-    let data = await response.json()
-      setProducts(data)
-  }
   
+ 
   useEffect(() => {
-    // https://fakestoreapi.com/products
+    let productsApiUrl  = 'https://fakestoreapi.com/products'
 
+    async function getProducts(productsApiUrl){
+      let response = await fetch(productsApiUrl)
+      let data = await response.json()
+        setProducts(data)
+    }
+    
   getProducts(productsApiUrl)
 
- }, )
+ }, [])
   
  
   return (
 
     <div className='products-container'>
        {products.map((product => {
-       return <SingleProduct key={product.title} product={ product } cartProducts={cartProducts} setCartProducts={setCartProducts}/>
+       return <SingleProduct key={product.title} isDarkMode={isDarkMode} product={ product } cartProducts={cartProducts} setCartProducts={setCartProducts}/>
        }))}
     </div>
   )
