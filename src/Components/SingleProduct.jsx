@@ -1,9 +1,9 @@
 import React from "react";
 
 
-const SingleProduct = ({product, cartProducts, setCartProducts, isDarkMode }) => {
+const SingleProduct = ({product, cartProducts, setCartProducts, isDarkMode, showModel, setShowModel, modelProduct, setModelProduct}) => {
      
-  
+ 
     function editedTitle(title) {
         if (title.length > 30 ) {
           return title.slice(0,30) + ' ...'
@@ -31,9 +31,18 @@ const SingleProduct = ({product, cartProducts, setCartProducts, isDarkMode }) =>
           
        }
 
+
+       function showProductDetails(event, productdetails) {
+        
+        if(event.target.className !== "add-to-cart-btn"){
+          setModelProduct(productdetails)
+          setShowModel(true)
+        }
+       }
+
        
     return (
-        <div className={isDarkMode ? "product-box dark-product-box" : "product-box" } key={product.id}>
+        <div className={isDarkMode ? "product-box dark-product-box" : "product-box" } key={product.id} onClick={(event) => showProductDetails(event ,product)}>
         <img src={product.image} className='product-img' alt={product.name}></img>
         <div className="product-details">
           <p>{editedTitle(product.title)}</p>

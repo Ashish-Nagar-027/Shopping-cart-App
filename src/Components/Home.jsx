@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import { CartData } from '../Context'
 import { useEffect, useState } from 'react'
 import SearchFilter from 'react-filter-search';
+import ContentModel from './ContentModel';
 
 
 import SingleProduct from './SingleProduct'
@@ -10,7 +11,7 @@ import SingleProduct from './SingleProduct'
 
 const Home = () => {
 
-  const { cartProducts , setCartProducts, isDarkMode, products , setProducts, searchData } =  useContext(CartData)
+  const { cartProducts , setCartProducts, isDarkMode, products , setProducts, searchData, showModel, setShowModel, modelProduct, setModelProduct } =  useContext(CartData)
   
   let [fetching, setFatching] = useState(false)
 
@@ -47,8 +48,9 @@ const Home = () => {
 
             return <div className="products-container">
               {results.map((product => {
-                return <SingleProduct key={product.title} isDarkMode={isDarkMode} product={ product } cartProducts={cartProducts} setCartProducts={setCartProducts}/>
+                return <SingleProduct key={product.title} isDarkMode={isDarkMode} product={ product } cartProducts={cartProducts} setCartProducts={setCartProducts} showModel={showModel} setShowModel={setShowModel} modelProduct={modelProduct} setModelProduct={setModelProduct}/>
                  }))}
+              <ContentModel />
             </div>
           }}
         />

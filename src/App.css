@@ -116,6 +116,7 @@ a {
 
 /* products box css */
 .products-container {
+  position: relative;
   padding: 20px ;
  display: flex;
  flex-wrap: wrap;
@@ -134,8 +135,18 @@ a {
   justify-content: space-around;
 }
 
+.product-box:hover {
+  background-color: rgb(247, 240, 240);
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
 .dark-product-box {
   border: 1px solid white;
+}
+
+.dark-product-box:hover {
+  background-color: #3c4455;
+  box-shadow: rgba(255, 255, 255, 0.8) 0px 0px 0px 2px, rgba(255, 255, 255, 0.8) 0px 4px 6px -1px, rgb(255, 255, 255, 0.8) 0px 1px 0px inset;
 }
 
 .product-img {
@@ -170,3 +181,39 @@ a {
   color: white;
 }
 
+
+
+/* model */
+
+.contentmodel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(78, 71, 71, 0.39);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -10;
+  visibility: hidden;
+}
+
+.show-model {
+  z-index: 10;
+  visibility: visible;
+}
+
+.details-model-div {
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.model-product-image{
+  height: 40%;
+  width: auto;
+}
