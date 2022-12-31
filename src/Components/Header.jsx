@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext} from 'react'
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsMoon, BsSun  } from "react-icons/bs";
 import { CartData } from '../Context';
@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
 
-  const { cartProducts,isDarkMode, setIsDarkMode, products, setProducts, searchData, setSearchData } =  useContext(CartData)
+  const { cartProducts,isDarkMode, setIsDarkMode, setSearchData } =  useContext(CartData)
   
   function inputCangeHandler(event) {
     let value = event.target.value

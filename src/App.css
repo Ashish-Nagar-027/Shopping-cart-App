@@ -154,3 +154,19 @@ a {
   padding: 5px 10px;
   cursor: pointer;
 }
+
+.not-available-msg {
+  padding :3rem;
+  font-size: 1.4rem;
+  
+}
+
+.loading-data-text {
+  padding: 2rem;
+  color: #551A8B;
+}
+
+.loading-data-text.dark-color {
+  color: white;
+}
+
