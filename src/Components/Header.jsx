@@ -1,13 +1,17 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { BsMoon, BsSun  } from "react-icons/bs";
 import { CartData } from '../Context';
-
 import { Link } from 'react-router-dom'
 
 const Header = () => {
 
-  const { cartProducts,isDarkMode, setIsDarkMode } =  useContext(CartData)
+  const { cartProducts,isDarkMode, setIsDarkMode, products, setProducts, searchData, setSearchData } =  useContext(CartData)
+  
+  function inputCangeHandler(event) {
+    let value = event.target.value
+      setSearchData(value)
+  }
 
   return (
     <div className={isDarkMode ? "Navbar dark-navbar" : "Navbar"}>
@@ -17,8 +21,8 @@ const Header = () => {
         
         <div className='right-nav'>
             <div className='search'>
-              <form>
-                 <input type='text' className='search-input'></input>
+              <form onSubmit={(event) => event.preventDefault()}>
+                 <input type='text' className='search-input'  onChange={(event) => inputCangeHandler(event)}></input>
               </form>
             </div>
             <div className={isDarkMode ? 'cart-div dark-cart-div' : 'cart-div'}>
@@ -34,7 +38,6 @@ const Header = () => {
     </div>
   )
 }
-
 
 
 

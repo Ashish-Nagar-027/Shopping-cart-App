@@ -1,18 +1,16 @@
 
 import React, { useContext } from 'react'
 import { CartData } from '../Context'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
+import SearchFilter from 'react-filter-search';
+
 
 import SingleProduct from './SingleProduct'
 
 const Home = () => {
 
-  const { cartProducts , setCartProducts, isDarkMode } =  useContext(CartData)
+  const { cartProducts , setCartProducts, isDarkMode, products , setProducts, searchData, setSearchData } =  useContext(CartData)
   
-  const [products , setProducts] = useState([])
-
-  
- 
   useEffect(() => {
     let productsApiUrl  = 'https://fakestoreapi.com/products'
 
@@ -29,10 +27,18 @@ const Home = () => {
  
   return (
 
-    <div className='products-container'>
-       {products.map((product => {
-       return <SingleProduct key={product.title} isDarkMode={isDarkMode} product={ product } cartProducts={cartProducts} setCartProducts={setCartProducts}/>
-       }))}
+    <div>
+      <SearchFilter 
+          value={searchData}
+          data={products}
+          renderResults={results => (
+            <div className="products-container">
+              {results.map((product => {
+                return <SingleProduct key={product.title} isDarkMode={isDarkMode} product={ product } cartProducts={cartProducts} setCartProducts={setCartProducts}/>
+                 }))}
+            </div>
+          )}
+        />
     </div>
   )
 }
