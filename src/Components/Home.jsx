@@ -17,7 +17,7 @@ const Home = () => {
 
   useEffect(() => {
     let productsApiUrl  = 'https://fakestoreapi.com/products'
-
+    
     async function getProducts(productsApiUrl){
       setFatching(true)
       let response = await fetch(productsApiUrl)
