@@ -2,10 +2,11 @@ import React, { useContext } from 'react'
 import { CartData } from '../Context'
 import SingleProduct from './SingleProduct'
 import SearchFilter from 'react-filter-search';
+import ContentModel from './ContentModel';
 
 const Cart = () => {
 
-  const { cartProducts ,searchData, setCartProducts, isDarkMode} =  useContext(CartData)
+  const { cartProducts ,searchData, setCartProducts, isDarkMode,showModel, setShowModel, modelProduct, setModelProduct} =  useContext(CartData)
 
   return (
  
@@ -23,9 +24,10 @@ const Cart = () => {
          
           return <div className="products-container">
             {results.map(((product) => {
-              return <SingleProduct key={product.title} isDarkMode={isDarkMode} product={ product } cartProducts={cartProducts} setCartProducts={setCartProducts}/>
+              return <SingleProduct key={product.title} isDarkMode={isDarkMode} product={ product } showModel={showModel} setShowModel={setShowModel} modelProduct={modelProduct} setModelProduct={setModelProduct} cartProducts={cartProducts} setCartProducts={setCartProducts}/>
                }
                ))}
+               <ContentModel />
           </div>
         }}
       />
