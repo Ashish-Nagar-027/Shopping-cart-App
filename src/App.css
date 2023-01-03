@@ -142,7 +142,7 @@ a {
 }
 
 .dark-product-box:hover {
-  background-color: #3c4455;
+  background-color: #121f3c;
   box-shadow: rgba(255, 255, 255, 0.8) 0px 0px 0px 2px, rgba(255, 255, 255, 0.8) 0px 4px 6px -1px, rgb(255, 255, 255, 0.8) 0px 1px 0px inset;
 }
 
@@ -251,7 +251,6 @@ a {
   color: white;
 }
 .dark-model {
-  background-color: #949eb1;
   background-color: #2d3c50;
   color: white;
 }
