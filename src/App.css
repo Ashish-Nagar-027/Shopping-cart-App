@@ -243,15 +243,16 @@ a {
 .bold-me {
 
   font-weight: bold;
-  color: black;
+  color: #3AA691;
 }
 
 .dark {
   background-color: #112034;
   color: white;
+  
 }
 .dark-model {
-  background-color: #2d3c50;
+  background-color: #112034;
   color: white;
 }
 
@@ -264,4 +265,64 @@ a {
   color: red;
   cursor: pointer;
   font-size: 1.5rem;
+}
+
+/* main top hero section */
+.hero-section {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  max-width: 100vw;
+  height: 60vh;
+  border-bottom: 1px solid black;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.hero-section-left,
+.hero-section-right{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:display 5s ease-in-out;
+  
+}
+
+
+.hero-section-details {
+  max-width: 90vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition:display 5s ease-in-out;
+
+}
+
+.top-product-image {
+  max-width: 15rem;
+  max-height: 20rem;
+}
+
+
+.hide-hero-section {
+  display: none;
+  transition:display 5s ease-in-out;
+}
+
+.topLeftRightIcons {
+  position: absolute;
+  top: 49%;
+  width: 100%;
+  font-size: 3rem;
+}
+.left-icon {
+  position: absolute;
+  left: 1rem;
+  cursor: pointer;
+}
+.right-icon {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
 }

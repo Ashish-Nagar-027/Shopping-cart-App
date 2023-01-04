@@ -4,6 +4,7 @@ import { CartData } from '../Context'
 import { useEffect, useState } from 'react'
 import SearchFilter from 'react-filter-search';
 import ContentModel from './ContentModel';
+import HeroSection from './HeroSection';
 
 
 import SingleProduct from './SingleProduct'
@@ -33,6 +34,7 @@ const Home = () => {
  
   return (
   <div>
+    <HeroSection />
     { fetching ? 
     <h1 className={isDarkMode ?"loading-data-text dark-color" : "loading-data-text"}> Loading . . .  </h1> :
     <SearchFilter 

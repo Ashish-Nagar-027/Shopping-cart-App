@@ -6,12 +6,20 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
 
-  const { cartProducts,isDarkMode, setIsDarkMode, setSearchData } =  useContext(CartData)
+  const { cartProducts,isDarkMode, setIsDarkMode, setSearchData, setShowHeroSection  } =  useContext(CartData)
   
   function inputCangeHandler(event) {
     let value = event.target.value
-      setSearchData(value)
-  }
+
+    if ((value.trim()).length > 1){
+      setShowHeroSection(false)
+    }
+    else {
+      setShowHeroSection(true)
+    }
+
+    setSearchData(value)
+  } 
 
   return (
     <div className={isDarkMode ? "Navbar dark-navbar" : "Navbar"}>
