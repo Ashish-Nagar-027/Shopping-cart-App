@@ -4,31 +4,15 @@ import { CartData } from '../Context'
 import { TopProducts } from './TopProducts'
 import { AiFillLeftSquare, AiFillRightSquare } from "react-icons/ai";
 import { useEffect } from 'react';
-import { act } from 'react-dom/test-utils';
+
 
 const HeroSection = () => {
     const { showHeroSection, isDarkMode } =  useContext(CartData)
     
-    const [topProductsData, setTopProductsData] = useState(TopProducts)
+    const [topProductsData] = useState(TopProducts)
     const [activeIndex, setActiveIndex ] = useState(0)
 
-    function setIndexHandler(direction, index) {
-            // console.log(index)
-         if(direction === 'previous-next') {
-          if(index <= 0){
-            setActiveIndex(TopProducts.length - 1 )
-          }else {
-            setActiveIndex(activeIndex - 1)
-          }
-         }
-         if(direction === 'show-next') {
-          if(index >= (TopProducts.length-1)){
-            setActiveIndex(0)
-          }else {
-            setActiveIndex(activeIndex + 1)
-          }
-         }
-    }
+    
     
     useEffect(() => {
       const lastIndex = topProductsData.length - 1
@@ -39,9 +23,26 @@ const HeroSection = () => {
         setActiveIndex(0)
       }
            
-      
     }, [activeIndex,topProductsData])
+
+
+    useEffect(() => {
+      let autoSlide = setInterval(() => {
+         setActiveIndex(activeIndex + 1)
+      }, 3000);
+      return () => clearInterval(autoSlide)
+    }, [activeIndex])
     
+
+    const { setShowModel, setModelProduct } =  useContext(CartData)
+
+    function showProductDetails(event, productdetails) {
+      if(event.target.className !== "add-to-cart-btn"){
+        setModelProduct(productdetails)
+        setShowModel(true)
+      }
+     }
+
 
   return (
     <div className={ showHeroSection ? 'hero-section' : 'hero-section hide-hero-section'
@@ -62,7 +63,7 @@ const HeroSection = () => {
               productPosition = 'top-previous-item'
            }
 
-        return  <div className={showHeroSection ? `hero-section-details ${productPosition}`  :  ' hide-hero-section' } key={productItem.title}>
+        return  <div className={showHeroSection ? `hero-section-details ${productPosition}`  :  ' hide-hero-section' } key={productItem.title} onClick={(event) => showProductDetails(event,productItem)}>
          
          <div className="hero-section-left">
             <img src={productItem.image} alt={productItem.title} className ="top-product-image"></img> 
@@ -71,10 +72,18 @@ const HeroSection = () => {
               <h2>{productItem.title}</h2>
          </div>
        </div>
-        
-
       })
     }
+    {/* bottom dots */}
+     <div className='dots'>
+      {topProductsData.map((DotItem, DotIndex) => {
+        let activeDotClass  = 'dot'
+        if(activeIndex === DotIndex) {
+          activeDotClass = "dot active-dot"
+        }
+        return <div className={activeDotClass} key={DotItem.title}></div>
+      } )}
+     </div>
 
     </div>
   )

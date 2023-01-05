@@ -7,7 +7,6 @@ import { ImCross } from "react-icons/im";
 const ContentModel = () => {
     const { cartProducts, setCartProducts, isDarkMode, showModel, setShowModel, modelProduct, setModelProduct } =  useContext(CartData)
        
-    console.log(modelProduct)
     function closeModel(e) {
 
         if(e.target.className==='contentmodel show-model' ||e.target.className=== 'model-cancel' || e.target.tagName === 'svg' || e.target.tagName === 'path'){
