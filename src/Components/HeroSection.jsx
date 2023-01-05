@@ -47,7 +47,7 @@ const HeroSection = () => {
   return (
     <div className={ showHeroSection ? 'hero-section' : 'hero-section hide-hero-section'
     && isDarkMode ? "dark" : ""}> 
-     <div className='topLeftRightIcons'>
+     <div className={showHeroSection ? 'topLeftRightIcons' : 'hide-hero-section'}>
              <div className="left-icon" onClick={() => setActiveIndex(activeIndex - 1)}><AiFillLeftSquare /></div>
              <div className="right-icon " onClick={() => setActiveIndex(activeIndex + 1)}><AiFillRightSquare /></div>
       </div>
@@ -75,7 +75,7 @@ const HeroSection = () => {
       })
     }
     {/* bottom dots */}
-     <div className='dots'>
+     <div className={showHeroSection ? 'dots' : 'hide-hero-section'}>
       {topProductsData.map((DotItem, DotIndex) => {
         let activeDotClass  = 'dot'
         if(activeIndex === DotIndex) {
