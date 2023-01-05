@@ -195,6 +195,8 @@ a {
   justify-content: center;
   z-index: -10;
   visibility: hidden;
+  gap:2rem;
+  flex-wrap: wrap;
 }
 
 .show-model {
@@ -209,12 +211,12 @@ a {
   display: flex;
   align-items:center;
   color: blue;
-  padding: 2rem;
   position: relative;
   flex-wrap: wrap;
-  gap:2rem;
+  gap:10px;
   max-width: 90%;
-  max-height: 90%;
+  padding: 2rem;
+  min-height: fit-content;
 }
 
 .contentmodel > .details-model-div > .model-image-div > .model-product-image {
@@ -236,7 +238,7 @@ a {
   display: flex;
   justify-items: center;
   flex-direction: column;
-  gap:15px
+  gap:5px
 
 }
 
@@ -271,11 +273,11 @@ a {
 .hero-section {
   position: relative;
   display: flex;
-  justify-content: space-around;
-  max-width: 100vw;
+  justify-content: center;
+  align-items: center;
   height: 60vh;
   border-bottom: 1px solid black;
-  max-width: 100vw;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -291,13 +293,19 @@ a {
 
 
 .hero-section-details {
-  max-width: 90vw;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  transition:display 5s ease-in-out;
+  justify-content: center;
+  transition: all 1s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 5%;
+  bottom: 0;
+  width: 90%;
+  opacity: 0;
 
 }
+
 
 .top-product-image {
   max-width: 15rem;
@@ -307,7 +315,7 @@ a {
 
 .hide-hero-section {
   display: none;
-  transition:display 5s ease-in-out;
+  transition:all 0.5s ease-in-out;
 }
 
 .topLeftRightIcons {
@@ -315,6 +323,7 @@ a {
   top: 49%;
   width: 100%;
   font-size: 3rem;
+  z-index: 10;
 }
 .left-icon {
   position: absolute;
@@ -325,4 +334,18 @@ a {
   position: absolute;
   right: 1rem;
   cursor: pointer;
+}
+
+
+.top-active-item{
+  opacity: 1;
+   transform: translateX(0);
+} 
+
+.top-next-item {
+  transform: translateX(100%);
+}
+
+.top-previous-item {
+  transform: translateX(-100%);
 }

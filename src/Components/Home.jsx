@@ -50,8 +50,10 @@ const Home = () => {
 
             return <div className="products-container">
               {results.map((product => {
+                console.log(product.category);
+                
                 return <SingleProduct key={product.title} isDarkMode={isDarkMode} product={ product } cartProducts={cartProducts} setCartProducts={setCartProducts} showModel={showModel} setShowModel={setShowModel} modelProduct={modelProduct} setModelProduct={setModelProduct}/>
-                 }))}
+           }))}
               <ContentModel />
             </div>
           }}

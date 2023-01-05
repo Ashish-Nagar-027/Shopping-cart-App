@@ -3,10 +3,13 @@ import { useContext, useState } from 'react'
 import { CartData } from '../Context'
 import { TopProducts } from './TopProducts'
 import { AiFillLeftSquare, AiFillRightSquare } from "react-icons/ai";
+import { useEffect } from 'react';
+import { act } from 'react-dom/test-utils';
 
 const HeroSection = () => {
     const { showHeroSection, isDarkMode } =  useContext(CartData)
-
+    
+    const [topProductsData, setTopProductsData] = useState(TopProducts)
     const [activeIndex, setActiveIndex ] = useState(0)
 
     function setIndexHandler(direction, index) {
@@ -27,20 +30,40 @@ const HeroSection = () => {
          }
     }
     
+    useEffect(() => {
+      const lastIndex = topProductsData.length - 1
+      if(activeIndex < 0 ) {
+        setActiveIndex(lastIndex)
+      }
+      if(activeIndex > lastIndex ) {
+        setActiveIndex(0)
+      }
+           
+      
+    }, [activeIndex,topProductsData])
+    
 
   return (
     <div className={ showHeroSection ? 'hero-section' : 'hero-section hide-hero-section'
     && isDarkMode ? "dark" : ""}> 
-    
+     <div className='topLeftRightIcons'>
+             <div className="left-icon" onClick={() => setActiveIndex(activeIndex - 1)}><AiFillLeftSquare /></div>
+             <div className="right-icon " onClick={() => setActiveIndex(activeIndex + 1)}><AiFillRightSquare /></div>
+      </div>
     {
-      TopProducts.map((productItem,index) => {
-        if(index === activeIndex){
-          
-        return   <div className={showHeroSection ? 'hero-section-details' :  'hero-section-details hide-hero-section'} key={productItem.title}>
-          <div className='topLeftRightIcons'>
-             <div className="left-icon" onClick={() => setIndexHandler("previous-next", index)}><AiFillLeftSquare /></div>
-             <div className="right-icon " onClick={() => setIndexHandler("show-next",index)}><AiFillRightSquare /></div>
-         </div>
+      topProductsData.map((productItem,index) => {
+           let productPosition = 'top-next-item';
+
+           if(activeIndex === index ){
+              productPosition = 'top-active-item'
+           }
+
+           if(index === activeIndex - 1 || (activeIndex === 0 && index === topProductsData.length -1 ) ){
+              productPosition = 'top-previous-item'
+           }
+
+        return  <div className={showHeroSection ? `hero-section-details ${productPosition}`  :  ' hide-hero-section' } key={productItem.title}>
+         
          <div className="hero-section-left">
             <img src={productItem.image} alt={productItem.title} className ="top-product-image"></img> 
          </div>
@@ -48,7 +71,7 @@ const HeroSection = () => {
               <h2>{productItem.title}</h2>
          </div>
        </div>
-        }
+        
 
       })
     }
