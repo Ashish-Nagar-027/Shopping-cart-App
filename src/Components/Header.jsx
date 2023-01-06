@@ -1,8 +1,9 @@
 import React, {useContext} from 'react'
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { BsMoon, BsSun  } from "react-icons/bs";
+import { BsMoon, BsSun, BsSearch  } from "react-icons/bs";
 import { CartData } from '../Context';
 import { Link } from 'react-router-dom'
+import { useState } from 'react';
 
 const Header = () => {
 
@@ -19,7 +20,9 @@ const Header = () => {
     }
 
     setSearchData(value)
-  } 
+  }  
+
+  const [showSearch, setShowSearch] = useState(false)
 
   return (
     <div className={isDarkMode ? "Navbar dark-navbar" : "Navbar"}>
@@ -30,7 +33,8 @@ const Header = () => {
         <div className='right-nav'>
             <div className='search'>
               <form onSubmit={(event) => event.preventDefault()}>
-                 <input type='text' className='search-input'  onChange={(event) => inputCangeHandler(event)}></input>
+                 <input type='text' className={showSearch ? 'search-input show-search' : 'search-input'}  onChange={(event) => inputCangeHandler(event)}></input>
+                 <BsSearch className='searchIcon' onClick={()=> setShowSearch(!showSearch)}/>
               </form>
             </div>
             <div className={isDarkMode ? 'cart-div dark-cart-div' : 'cart-div'}>

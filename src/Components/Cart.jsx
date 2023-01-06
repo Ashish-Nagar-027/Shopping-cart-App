@@ -11,7 +11,10 @@ const Cart = () => {
   return (
  
     <div>
-      
+      <div className='cart-info-div'>
+        <p>Total Products : { cartProducts.length} </p>
+        <p>Total Price : ${ cartProducts.reduce((acc,curr) => acc + curr.price, 0) } </p>
+      </div>
     <SearchFilter 
         value={searchData}
         data={cartProducts}

@@ -15,7 +15,7 @@ const Home = () => {
   
   const [fetching, setFatching] = useState(false)
   
-  const [ categories ] = useState(["All","electronics","men's clothing" ,"women's clothing"])
+  const [ categories ] = useState(["All","electronics","men's clothing","jewelery" ,"women's clothing"])
   
   const [currentCategory, setCurrentCategory] = useState("All")
   
@@ -29,7 +29,7 @@ const Home = () => {
       setFatching(true)
       let response = await fetch(productsApiUrl)
       let data = await response.json()
-        setProducts(data) //just silence warning
+        setProducts(data) 
         setFatching(false)
     }
     
@@ -44,7 +44,7 @@ const Home = () => {
     <div className='category-section'>
       {
         categories.map((category,index) => {
-              let categoryClass = 'category'
+          let categoryClass = 'category'
           if(category === currentCategory) {
             categoryClass = 'category active-category'
           }
