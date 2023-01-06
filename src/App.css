@@ -130,6 +130,7 @@ a {
   flex-direction: column ;
   align-items: center;
   justify-content: space-around;
+  border-radius: 5px ;
 }
 
 .product-box:hover {
@@ -368,4 +369,34 @@ a {
 
 .active-dot {
   background-color: red;
+}
+
+
+.category-section {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  gap: 10px;
+  flex-wrap: wrap;
+
+}
+
+.category {
+  padding: 0.5rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.category:hover {
+  border-color:red ;
+  color:blue ;
+}
+.category:focus {
+  color: red;
+}
+.category.active-category{
+  border-color:red ;
 }
