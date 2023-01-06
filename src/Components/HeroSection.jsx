@@ -69,7 +69,7 @@ const HeroSection = () => {
             <img src={productItem.image} alt={productItem.title} className ="top-product-image"></img> 
          </div>
          <div className="hero-section-right">
-              <h2>{productItem.title}</h2>
+              <h2 className='top-product-title'>{productItem.title}</h2>
          </div>
        </div>
       })

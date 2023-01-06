@@ -315,7 +315,8 @@ form {
 .hero-section-details {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  gap:1rem;
   transition: all 1s ease-in-out;
   position: absolute;
   top: 0;
@@ -323,7 +324,6 @@ form {
   bottom: 0;
   width: 90%;
   opacity: 0;
-
 }
 
 
@@ -396,7 +396,7 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 5rem;
+  min-height: 5rem;
   gap: 10px;
   flex-wrap: wrap;
 
@@ -457,5 +457,39 @@ form {
   .show-search {
     display: block;
   }
+
+  .top-product-image {
+    max-width: 10rem;
+    max-height: 15rem;
+  } 
+
+  .top-product-title {
+    font-size: 1.3rem;
+  }
+
+  .hero-section {
+    height: 50vh;
+  }
+
+  .right-nav {
+    gap: 10px;
+  }
+
+  .Navbar {
+    padding: 1rem;
+    gap: 10px;
+  }
   
+}
+
+@media screen and (max-width: 400px) {
+  .top-product-image {
+    max-width: 7rem;
+    max-height: 12rem;
+  } 
+
+  .top-product-title {
+    font-size: 1.1rem;
+  }
+
 }
