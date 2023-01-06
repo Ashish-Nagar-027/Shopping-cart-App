@@ -130,11 +130,11 @@ form {
 /* products box css */
 .products-container {
   position: relative;
-  padding: 20px ;
+  padding: 10px ;
  display: flex;
  flex-wrap: wrap;
- justify-content: space-evenly;
- gap: 10px;
+ justify-content: center;
+ gap: 5px;
  transition: all 1s ease-in-out;
 }
 
@@ -444,7 +444,7 @@ form {
     display: none;
     position: absolute;
     top: 3.3rem;
-    width: 60vw;
+    width: 50vw;
     left: -10rem;
     z-index: 20;
 
@@ -483,6 +483,9 @@ form {
 }
 
 @media screen and (max-width: 400px) {
+
+
+
   .top-product-image {
     max-width: 7rem;
     max-height: 12rem;
@@ -490,6 +493,14 @@ form {
 
   .top-product-title {
     font-size: 1.1rem;
+  }
+
+}
+
+@media screen and (max-width: 350px) {
+  .search-input {
+    top:3.9rem;
+    left: -5rem;
   }
 
 }
