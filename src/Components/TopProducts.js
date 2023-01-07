@@ -34,8 +34,6 @@ export const TopProducts = [
         description: "Expand your PS4 gaming experience, Play anywhere F… capacity, 3-year manufacturer's limited warranty", 
         category: 'electronics',
         image: "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg"
-
     }
-
 
 ]

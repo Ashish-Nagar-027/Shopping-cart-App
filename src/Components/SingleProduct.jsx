@@ -2,7 +2,6 @@ import React from "react";
 
 
 const SingleProduct = ({product, cartProducts, setCartProducts, isDarkMode, showModel, setShowModel, modelProduct, setModelProduct}) => {
-     
  
     function editedTitle(title) {
         if (title.length > 30 ) {
@@ -13,27 +12,20 @@ const SingleProduct = ({product, cartProducts, setCartProducts, isDarkMode, show
         }
        }
 
-
        function setCartproductsfunction(product) {
         let itemAlreadyInCart = false
         if(cartProducts.find((item) =>item.title === product.title)){
           itemAlreadyInCart = true;
         } 
-       
-        
         if(!itemAlreadyInCart) {
           setCartProducts([...cartProducts, product])
         }  
-
         if(itemAlreadyInCart) {
           setCartProducts(cartProducts.filter(item => item.title !== product.title))
         }  
-          
        }
 
-
        function showProductDetails(event, productdetails) {
-        
         if(event.target.className !== "add-to-cart-btn"){
           setModelProduct(productdetails)
           setShowModel(true)
@@ -59,7 +51,6 @@ const SingleProduct = ({product, cartProducts, setCartProducts, isDarkMode, show
           </button> 
         }
         </div>
-
     )
 }
 

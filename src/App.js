@@ -12,7 +12,7 @@ function App() {
   const { isDarkMode } =  useContext(CartData)
 
   return (
-    <div className={isDarkMode ? "App dark" : "App"}>
+    <div className={isDarkMode ? "App dark-app" : "App"}>
       <Header  />
       <Routes>
         <Route path="/" element={<Home />} />

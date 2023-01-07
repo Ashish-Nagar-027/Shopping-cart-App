@@ -18,18 +18,16 @@ const Header = () => {
     else {
       setShowHeroSection(true)
     }
-
     setSearchData(value)
   }  
 
   const [showSearch, setShowSearch] = useState(false)
 
   return (
-    <div className={isDarkMode ? "Navbar dark-navbar" : "Navbar"}>
+    <div className="Navbar">
         <div className='left-nav'>
          <Link to="/" className='logo'>Shopping Cart</Link>
         </div>
-        
         <div className='right-nav'>
             <div className='search'>
               <form onSubmit={(event) => event.preventDefault()}>
@@ -37,7 +35,7 @@ const Header = () => {
                  <BsSearch className='searchIcon' onClick={()=> setShowSearch(!showSearch)}/>
               </form>
             </div>
-            <div className={isDarkMode ? 'cart-div dark-cart-div' : 'cart-div'}>
+            <div className='cart-div'>
             <Link to="/Cart" className='cart-icon'>
               <button className='nav-btns'><AiOutlineShoppingCart /></button>
               <button className='cart-items-number nav-btns'>{cartProducts.length}</button>

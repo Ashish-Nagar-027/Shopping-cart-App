@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react'
 import SearchFilter from 'react-filter-search';
 import ContentModel from './ContentModel';
 import HeroSection from './HeroSection';
-
-
 import SingleProduct from './SingleProduct'
 
 
@@ -24,13 +22,16 @@ const Home = () => {
   useEffect(() => {
     let productsApiUrl  = 'https://fakestoreapi.com/products'
      
-
     async function getProducts(productsApiUrl){
       setFatching(true)
-      let response = await fetch(productsApiUrl)
-      let data = await response.json()
-        setProducts(data) 
-        setFatching(false)
+      try {
+        let response = await fetch(productsApiUrl)
+        let data = await response.json()
+          setProducts(data) 
+          setFatching(false)
+      } catch (error) {
+        getProducts(productsApiUrl)
+      }
     }
     
   getProducts(productsApiUrl)
@@ -45,10 +46,11 @@ const Home = () => {
       {
         categories.map((category,index) => {
           let categoryClass = 'category'
+
           if(category === currentCategory) {
             categoryClass = 'category active-category'
           }
-
+          
           return <span key={index} className={categoryClass} onClick={() =>setCurrentCategory(category)}>{category}</span>
         })
       }
@@ -65,8 +67,7 @@ const Home = () => {
               <p> No Products Found 🙄</p>
               </div>
             }
-            
-            
+
             return <div className="products-container">
               {results.map(((product) => {
 
@@ -81,7 +82,9 @@ const Home = () => {
                 return null
               
            }))}
+
               <ContentModel />
+
             </div>
           }}
         />
