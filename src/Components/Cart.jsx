@@ -19,6 +19,7 @@ const Cart = () => {
         value={searchData}
         data={cartProducts}
         renderResults={results => {
+          
           if(results.length === 0){
             return <div className='not-available-msg'> 
             <p> No Products Found 🙄</p>

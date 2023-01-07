@@ -530,12 +530,16 @@ form {
 @media screen and (max-width: 400px) {
 
   .top-product-image {
-    max-width: 7rem;
+    max-width: 5.5rem;
     max-height: 12rem;
   } 
 
   .top-product-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .hero-section {
+    height: 45vh;
   }
 
 }
@@ -545,4 +549,53 @@ form {
     top:5.8rem;
   }
 
+  .hero-section {
+    height: 40vh;
+  }
+
+}
+@media screen and (max-width: 300px) {
+  .search-input {
+    top:4.5rem;
+  }
+  .Navbar {
+    padding: 0.5rem;
+  }
+  .logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .searchIcon {
+    font-size: 1rem;
+    height: 1rem;
+  }
+  .cart-icon svg {
+    font-size: 1rem;
+  }
+
+  .nav-btns {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  .cart-items-number {
+    font-size: 1rem;
+  }
+
+  .right-nav {
+    gap: 7px;
+  }
+
+  .top-product-title {
+    font-size: 1rem;
+  }
+
+  .top-product-image {
+    max-width: 5rem;
+    max-height: 8rem;
+   }
+
+   .hero-section {
+    height: 30vh;
+   }
 }

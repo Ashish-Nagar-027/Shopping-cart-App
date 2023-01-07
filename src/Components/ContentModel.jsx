@@ -5,8 +5,10 @@ import { ImCross } from "react-icons/im";
 
 
 const ContentModel = () => {
+
     const { cartProducts, setCartProducts, showModel, setShowModel, modelProduct, setModelProduct } =  useContext(CartData)
        
+
     function closeModel(e) {
         if(e.target.className==='contentmodel show-model' ||e.target.className=== 'model-cancel' || e.target.tagName === 'svg' || e.target.tagName === 'path'){
             setModelProduct('')
@@ -27,9 +29,7 @@ const ContentModel = () => {
         if(itemAlreadyInCart) {
           setCartProducts(cartProducts.filter(item => item.title !== product.title))
         }  
-          
        }
-         
 
   return (
     <div className={showModel ? 'contentmodel show-model' : 'contentmodel'} onClick={(e) => closeModel(e)} >

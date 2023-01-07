@@ -3,6 +3,7 @@ import React from "react";
 
 const SingleProduct = ({product, cartProducts, setCartProducts, isDarkMode, showModel, setShowModel, modelProduct, setModelProduct}) => {
  
+  // edit long tittle function
     function editedTitle(title) {
         if (title.length > 30 ) {
           return title.slice(0,30) + ' ...'
@@ -11,7 +12,8 @@ const SingleProduct = ({product, cartProducts, setCartProducts, isDarkMode, show
           return title
         }
        }
-
+        
+      //  Add to cart function
        function setCartproductsfunction(product) {
         let itemAlreadyInCart = false
         if(cartProducts.find((item) =>item.title === product.title)){
@@ -25,6 +27,8 @@ const SingleProduct = ({product, cartProducts, setCartProducts, isDarkMode, show
         }  
        }
 
+
+      //  show model function
        function showProductDetails(event, productdetails) {
         if(event.target.className !== "add-to-cart-btn"){
           setModelProduct(productdetails)

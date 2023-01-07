@@ -6,7 +6,7 @@ import SearchFilter from 'react-filter-search';
 import ContentModel from './ContentModel';
 import HeroSection from './HeroSection';
 import SingleProduct from './SingleProduct'
-
+import Categories from './Categories';
 
 const Home = () => {
 
@@ -17,7 +17,7 @@ const Home = () => {
   
   const [currentCategory, setCurrentCategory] = useState("All")
   
-  const { cartProducts ,setProducts , setCartProducts, isDarkMode, products , searchData, showModel, setShowModel, modelProduct, setModelProduct } =  useContext(CartData)
+  const { cartProducts ,setProducts , setCartProducts, isDarkMode, products , searchData, showModel, setShowModel, modelProduct, setModelProduct  } =  useContext(CartData)
  
   useEffect(() => {
     let productsApiUrl  = 'https://fakestoreapi.com/products'
@@ -39,24 +39,24 @@ const Home = () => {
  }, [setProducts])
   
   
+ useEffect(() => {
+  setCurrentCategory('All')
+ }, [])
+ 
+
   return (
   <div>
+    {/* Top Hero section */}
     <HeroSection />
-    <div className='category-section'>
-      {
-        categories.map((category,index) => {
-          let categoryClass = 'category'
 
-          if(category === currentCategory) {
-            categoryClass = 'category active-category'
-          }
-          
-          return <span key={index} className={categoryClass} onClick={() =>setCurrentCategory(category)}>{category}</span>
-        })
-      }
-    </div>
+     {/* all categories type section */}
+    <Categories categories={categories} currentCategory={currentCategory} setCurrentCategory={setCurrentCategory}/>
+
+   {/* all products here */}
     { fetching ? 
+           
     <h1 className={isDarkMode ?"loading-data-text dark-color" : "loading-data-text"}> Loading . . .  </h1> :
+
     <SearchFilter 
           value={searchData}
           data={products}
@@ -80,9 +80,10 @@ const Home = () => {
                 }
 
                 return null
-              
+                
            }))}
-
+               
+           {/* floating model */}
               <ContentModel />
 
             </div>

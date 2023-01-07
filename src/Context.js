@@ -6,7 +6,7 @@ export const CartData = createContext()
 const Context = ({children}) => {
 
 const [cartProducts, setCartProducts] = useState([])
-const [isDarkMode, setIsDarkMode] = useState(false)
+const [isDarkMode, setIsDarkMode] = useState(true)
 const [products , setProducts] = useState([])
 const [searchData, setSearchData] = useState('')
 const [showModel, setShowModel] = useState(false)
