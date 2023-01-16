@@ -5,7 +5,7 @@ import Home from './Components/Home';
 import  Cart from './Components/Cart';
 import { Route, Routes } from "react-router-dom"
 import { CartData } from './Context';
-
+import Footer from './Components/Footer';
 
 function App() {
 
@@ -18,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />}  />
       </Routes>
+      <Footer />
     </div>
   );
 }

@@ -320,7 +320,7 @@ form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 5px;
+  gap: 10px;
   transition: all 1s ease-in-out;
 }
 
@@ -471,6 +471,20 @@ form {
   margin: 5px;
 }
 
+
+/* 
+===================
+    Footer 
+===================
+ */
+
+ .footer {
+  background-color: var(--main-app-bg-color);
+  color: var(--main-app-text-color);
+  padding: 1.5rem;
+  border-top: 1px solid var(--most-border-clr);
+  text-align: center;
+ }
 
 /* 
 ===================
