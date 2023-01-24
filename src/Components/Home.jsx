@@ -7,37 +7,24 @@ import ContentModel from './ContentModel';
 import HeroSection from './HeroSection';
 import SingleProduct from './SingleProduct'
 import Categories from './Categories';
+import { AllProducts } from './AllProducts'
 
 const Home = () => {
 
-  
-  const [fetching, setFatching] = useState(false)
   
   const [ categories ] = useState(["All","electronics","men's clothing","jewelery" ,"women's clothing"])
   
   const [currentCategory, setCurrentCategory] = useState("All")
   
   const { cartProducts ,setProducts , setCartProducts, isDarkMode, products , searchData, showModel, setShowModel, modelProduct, setModelProduct  } =  useContext(CartData)
- 
+  
   useEffect(() => {
-    let productsApiUrl  = 'https://fakestoreapi.com/products'
-     
-    async function getProducts(productsApiUrl){
-      setFatching(true)
-      try {
-        let response = await fetch(productsApiUrl)
-        let data = await response.json()
-          setProducts(data) 
-          setFatching(false)
-      } catch (error) {
-        getProducts(productsApiUrl)
-      }
-    }
-    
-  getProducts(productsApiUrl)
+ 
+  setProducts(AllProducts)
 
  }, [setProducts])
-  
+   
+      
   
  useEffect(() => {
   setCurrentCategory('All')
@@ -53,9 +40,6 @@ const Home = () => {
     <Categories categories={categories} currentCategory={currentCategory} setCurrentCategory={setCurrentCategory}/>
 
    {/* all products here */}
-    { fetching ? 
-           
-    <h1 className={isDarkMode ?"loading-data-text dark-color" : "loading-data-text"}> Loading . . .  </h1> :
 
     <SearchFilter 
           value={searchData}
@@ -89,7 +73,6 @@ const Home = () => {
             </div>
           }}
         />
-    }
     </div>
   )
 }
