@@ -1,8 +1,12 @@
+### note : This is app is v2 . first version was for internship. In second version i have fixed some bugs.
+
 # Shopping Cart Application
 
 This is a shopping cart project . Shopping cart Application is a simple fun project . 
 in this project we can add products to cart , remove products to cart , fetch products from fakestoreapi.com api , filter them on category bases etc.
 its a simple frontend which i built with react.js .
+
+
 
 ## Features
 
