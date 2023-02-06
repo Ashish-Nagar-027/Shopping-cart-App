@@ -1,13 +1,13 @@
 import React from 'react'
 import { useContext, useState } from 'react'
-import { CartData } from '../Context'
+import { CartData } from '../../Context'
 import { TopProducts } from './TopProducts'
 import { AiFillLeftSquare, AiFillRightSquare } from "react-icons/ai";
 import { useEffect } from 'react';
 
 
 const HeroSection = () => {
-    const { showHeroSection, isDarkMode } =  useContext(CartData)
+    const { isDarkMode } =  useContext(CartData)
     
     const [topProductsData] = useState(TopProducts)
     const [activeIndex, setActiveIndex ] = useState(0)
@@ -45,9 +45,8 @@ const HeroSection = () => {
 
 
   return (
-    <div className={ showHeroSection ? 'hero-section' : 'hero-section hide-hero-section'
-    && isDarkMode ? "dark" : ""}> 
-     <div className={showHeroSection ? 'topLeftRightIcons' : 'hide-hero-section'}>
+    <div className={isDarkMode ? "dark hero-section" : "hero-section"}> 
+     <div className={'topLeftRightIcons'}>
              <div className="left-icon" onClick={() => setActiveIndex(activeIndex - 1)}><AiFillLeftSquare /></div>
              <div className="right-icon " onClick={() => setActiveIndex(activeIndex + 1)}><AiFillRightSquare /></div>
       </div>
@@ -63,7 +62,7 @@ const HeroSection = () => {
               productPosition = 'top-previous-item'
            }
 
-        return  <div className={showHeroSection ? `hero-section-details ${productPosition}`  :  ' hide-hero-section' } key={productItem.title} onClick={(event) => showProductDetails(event,productItem)}>
+        return  <div className={`hero-section-details ${productPosition}`} key={productItem.title} onClick={(event) => showProductDetails(event,productItem)}>
          
          <div className="hero-section-left">
             <img src={productItem.image} alt={productItem.title} className ="top-product-image"></img> 
@@ -75,7 +74,7 @@ const HeroSection = () => {
       })
     }
     {/* bottom dots */}
-     <div className={showHeroSection ? 'dots' : 'hide-hero-section'}>
+     <div className={'dots'}>
       {topProductsData.map((DotItem, DotIndex) => {
         let activeDotClass  = 'dot'
         if(activeIndex === DotIndex) {

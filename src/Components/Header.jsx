@@ -1,40 +1,45 @@
 import React, {useContext} from 'react'
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { BsMoon, BsSun, BsSearch  } from "react-icons/bs";
+import { BsMoon, BsSun  } from "react-icons/bs";
 import { CartData } from '../Context';
 import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = () => {
 
-  const { cartProducts,isDarkMode, setIsDarkMode, setSearchData, setShowHeroSection  } =  useContext(CartData)
+    const { loginWithRedirect, logout ,isAuthenticated } = useAuth0();
   
-  function inputCangeHandler(event) {
-    let value = event.target.value
+   
 
-    if ((value.trim()).length > 1){
-      setShowHeroSection(false)
-    }
-    else {
-      setShowHeroSection(true)
-    }
-    setSearchData(value)
-  }  
-
-  const [showSearch, setShowSearch] = useState(false)
+  const { cartProducts,isDarkMode, setIsDarkMode } =  useContext(CartData)
+  
+  
+  
 
   return (
     <div className="Navbar">
         <div className='left-nav'>
-         <Link to="/" className='logo'>Shopping Cart</Link>
+         <Link to="/" className='logo'>Your-Cart</Link>
         </div>
         <div className='right-nav'>
-            <div className='search'>
-              <form onSubmit={(event) => event.preventDefault()}>
-                 <input type='text' placeholder='search here...' className={showSearch ? 'search-input show-search' : 'search-input'}  onChange={(event) => inputCangeHandler(event)}></input>
-                 <BsSearch className='searchIcon' onClick={()=> setShowSearch(!showSearch)}/>
-              </form>
-            </div>
+            <Link to="/" className=''>
+              Home
+            </Link>
+            <Link to="/products" className=''>
+              products
+            </Link>
+            <Link to="/contact" className=''>
+              Contact
+            </Link>
+           { isAuthenticated ?
+           <button className='login-button' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} >
+           Log Out
+         </button> :
+          <button className='login-button' onClick={() => loginWithRedirect()}>
+              Login
+            </button> 
+            }
+            
             <div className='cart-div'>
             <Link to="/Cart" className='cart-icon'>
               <button className='nav-btns'><AiOutlineShoppingCart /></button>

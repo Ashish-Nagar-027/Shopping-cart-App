@@ -3,11 +3,12 @@ import React, { useContext } from 'react'
 import { CartData } from '../Context'
 import { useEffect, useState } from 'react'
 import SearchFilter from 'react-filter-search';
-import ContentModel from './ContentModel';
-import HeroSection from './HeroSection';
-import SingleProduct from './SingleProduct'
-import Categories from './Categories';
-import { AllProducts } from './AllProducts'
+import ContentModel from '../Components/ContentModel';
+import HeroSection from '../Components/Products page components/HeroSection';
+import SingleProduct from '../Components/SingleProduct'
+import Categories from '../Components/Products page components/Categories';
+import { AllProducts } from '../Components/AllProducts'
+import SearchSection from '../Components/Products page components/SearchSection';
 
 const Home = () => {
 
@@ -35,6 +36,9 @@ const Home = () => {
   <div>
     {/* Top Hero section */}
     <HeroSection />
+    
+    {/* search section */}
+    <SearchSection />
 
      {/* all categories type section */}
     <Categories categories={categories} currentCategory={currentCategory} setCurrentCategory={setCurrentCategory}/>
