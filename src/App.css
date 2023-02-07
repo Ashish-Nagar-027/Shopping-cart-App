@@ -189,6 +189,33 @@ form {
 
 }
 
+.right-navbar-items {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+
+
+.hamburger  {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  display: none;
+  transition: all 0.4s ease-in-out
+}
+
+
+.hamburger div{
+  height: 2px;
+  width: 2rem;
+  background-color: var(--main-app-text-color);
+  transition: all 0.4s ease-in-out
+}
+
+
+
 
 /* 
 =====================================
@@ -256,13 +283,16 @@ form {
   text-align: center;
   border-top: 2px solid var(--most-border-clr) ;
   border-bottom: 2px solid var(--most-border-clr) ;
-  height: 80vh;
+  min-height: 80vh;
+  
  }
 
  .our-products-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
  }
 
 .homepage-our-products-section h1{
@@ -403,7 +433,7 @@ form {
   top: 49%;
   width: 100%;
   font-size: 3rem;
-  z-index: 10;
+  z-index: 9;
 }
 
 .left-icon {
@@ -677,9 +707,95 @@ form {
     media queries 
 ===================
  */
+@media screen and (max-width: 850px) {
+  .Home-heor-section-side-img {
+    width: 15rem;
+   }
+
+  .left-Home-Hero-section a {
+    padding: 0.5rem 0.8rem;
+  }  
+
+}
+
+ 
+@media screen and (max-width: 650px) {
+  .right-navbar-items {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    flex-direction: column;
+    padding: 1.5rem;
+    background-color: #1d2446f0;
+    width: 100%;
+    gap: 1.5rem;
+    align-items: center;
+    height: 0rem;
+    display: none;
+    transition: all 0.8 ease-in-out;
+  }
+
+  .right-navbar-items a {
+    padding: 0.5rem 0.8rem ;
+  }
+
+  .right-navbar-items a:hover {
+    color: red;
+    background-color: white;
+    border-radius: 5px;
+  }
+
+  .hamburger {
+    display: flex;
+    z-index:10;
+    transition: transform 0.4s ease-in-out;
+  }
+   
+  .ham-clicked :first-child {
+    transform: rotate(45deg);
+  }
+  .ham-clicked :nth-child(2) {
+     display: none;
+  }
+
+  .ham-clicked :last-child {
+    transform: rotate(-45deg);
+  }
+
+  
 
 
- @media screen and (max-width: 600px) {
+  .show-nav {
+    height: calc(100vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.8s ease-in-out;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+
+.Home-Hero-section { 
+    flex-direction: column-reverse;
+  }
+
+.left-Home-Hero-section {
+    width: 85%;
+  }
+
+  .HomePageFooter {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .HomePageFooter > :first-child {
+    width: 80%;
+  }
+
   .search-input {
     display: none;
     position: absolute;
@@ -687,8 +803,6 @@ form {
     width: 90%;
     left: 5%;
     z-index: 20;
-   
-
   }
   
   .searchIcon {
@@ -724,6 +838,12 @@ form {
   .details-model-div  {
     flex-direction: column;
     overflow-y: scroll;
+  }
+
+  .nav-btns {
+      height: 1.6rem;
+      width: 1.6rem;
+      cursor: pointer;
   }
   
 }
